@@ -1,12 +1,12 @@
 import React from 'react';
 import '../styles/global.css';
 import '../styles/pages/landing.css';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import logoImg from '../images/Logo.svg';
-import {FiArrowRight} from 'react-icons/fi'
+import { FiArrowRight } from 'react-icons/fi';
 
-function Landing(){
+export default function Landing() {
   return (
     <div id="page-landing">
       <div className="content-wrapper">
@@ -26,5 +26,3 @@ function Landing(){
     </div>
   );
 }
-
-export default Landing;

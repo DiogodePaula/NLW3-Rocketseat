@@ -19,4 +19,9 @@ module.exports = {
     'react/prefer-stateless-function': 'off',
     'import/prefer-default-export': 'off',
   },
+  settings: {
+    'import/resolver': {
+      foo: { someConfig: value },
+    },
+  },
 };
