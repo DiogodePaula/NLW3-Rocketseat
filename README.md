@@ -1,2 +1,10 @@
 # Happy
-Projeto desenvolvido durante a NWL - Trilha OmniStack. 
+
+# Tecnologias 🤖
+
+- TYPESCRIPT
+- REACT
+
+# Projeto 💻
+
+<img src=""/>
