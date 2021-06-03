@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Marker, Popup, Map, TileLayer } from 'react-leaflet';
 
 import { Link } from 'react-router-dom';
@@ -7,8 +7,26 @@ import '../styles/pages/orphanages-map.css';
 import { FiArrowRight, FiPlus } from 'react-icons/fi';
 import mapMark from '../images/Local.png';
 import mapIcon from '../utils/mapIcon';
+import api from '../services/api';
+
+interface Orphanage {
+  id: number;
+  latitude: number;
+  longitude: number;
+  name: string;
+}
 
 export default function OrphanagesMap() {
+  //estado é qualquer informação que eu queira armazenar no meu componente
+  //no useState eu passo um parâmetro de tipagem
+  const [orphanages, setOrphanages] = useState<Orphanage[]>([]);
+
+  useEffect(() => {
+    api.get('/orphanages').then((response) => {
+      setOrphanages(response.data);
+    });
+  }, []);
+
   return (
     <div id="page-map">
       <aside>
@@ -25,26 +43,35 @@ export default function OrphanagesMap() {
       </aside>
 
       <Map
-        center={[-29.5984382, -51.1253639]}
-        zoom={15}
+        center={[-29.693531, -51.1321033]}
+        zoom={14}
         style={{ width: '100%', height: '100%' }}
       >
         <TileLayer
           url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
         />
-        <Marker position={[-29.5984382, -51.1253639]} icon={mapIcon}>
-          <Popup
-            closeButton={false}
-            minWidth={240}
-            maxWidth={240}
-            className="map-popup"
-          >
-            Lar das meninas
-            <Link to="/orphanages/1">
-              <FiArrowRight size={20} color="#fff" />
-            </Link>
-          </Popup>
-        </Marker>
+
+        {orphanages.map((orphanage) => {
+          return (
+            <Marker
+              key={orphanage.id}
+              position={[orphanage.latitude, orphanage.longitude]}
+              icon={mapIcon}
+            >
+              <Popup
+                closeButton={false}
+                minWidth={240}
+                maxWidth={240}
+                className="map-popup"
+              >
+                {orphanage.name}
+                <Link to={`/orphanages/${orphanage.id}`}>
+                  <FiArrowRight size={20} color="#fff" />
+                </Link>
+              </Popup>
+            </Marker>
+          );
+        })}
       </Map>
 
       <Link to="/orphanages/create" className="create-orphanage">
