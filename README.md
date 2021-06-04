@@ -1,4 +1,4 @@
-## Happy
+# Happy
 
 # Tecnologias 🤖
 
