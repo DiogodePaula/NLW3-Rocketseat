@@ -31,24 +31,26 @@ export default function OrphanagesMap() {
     <div id="page-map">
       <aside>
         <header>
-          <img src={mapMark} alt="Happy" />
+          <Link to="/">
+            <img src={mapMark} alt="Happy" />
+          </Link>
           <h2>Escolha um orfanato no mapa</h2>
           <p>Muitas crianças estão esperando a sua visita</p>
         </header>
 
         <footer>
-          <strong>Dois irmãos</strong>
+          <strong>Novo Hamburgo</strong>
           <span>Rio Grande do Sul</span>
         </footer>
       </aside>
 
       <Map
         center={[-29.693531, -51.1321033]}
-        zoom={14}
+        zoom={13.5}
         style={{ width: '100%', height: '100%' }}
       >
         <TileLayer
-          url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
+          url={`https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
         />
 
         {orphanages.map((orphanage) => {

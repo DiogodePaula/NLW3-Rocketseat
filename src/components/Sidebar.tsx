@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router';
-
+import { Link } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 import mapMarkerImg from '../images//Local.png';
 
@@ -11,7 +11,9 @@ export default function Sidebar() {
 
   return (
     <aside className="app-sidebar">
-      <img src={mapMarkerImg} alt="Happy" />
+      <Link to="/">
+        <img src={mapMarkerImg} alt="Happy" />
+      </Link>
 
       <footer>
         <button type="button" onClick={goBack}>

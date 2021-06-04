@@ -16,7 +16,7 @@ export default function Landing() {
           <p>Visite orfanatos e mude o dia de muitas crianças</p>
         </main>
         <div className="location">
-          <strong>Dois Irmãos</strong>
+          <strong>Novo Hamburgo</strong>
           <span>Rio Grande do Sul</span>
         </div>
         <Link to="/app" className="enter-app">
