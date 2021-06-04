@@ -13,7 +13,7 @@ Projeto desenvolvido durante o NLW3 da Rocketseat ❤️.
 <img src="https://i.imgur.com/yGXe3TX.png"/>
 
 Página mapa.
-<img src="https://imgur.com/KH1kBUK"/>
+<img src="https://i.imgur.com/KH1kBUK.png"/>
 
 Cadastro de orfanato.
 <img src="https://i.imgur.com/WTIwpeq.png"/>
